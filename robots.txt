@@ -1,0 +1,76 @@
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://senderosdetinta.com/sitemap.xml
+
+# Therapeutic Content - Allow indexing
+Allow: /index.html
+Allow: /CHAT_TERAPEUTICO_INTERACTIVO.html  
+Allow: /paleta-colores.html
+Allow: /poems/
+Allow: /css/
+Allow: /assets/
+
+# Documentation - Allow indexing
+Allow: /README.md
+Allow: /ANALISIS_ACADEMICO_ARTISTICO.md
+Allow: /PROPUESTA_TEATRAL.md
+Allow: /ARTE_ASCII_VISUAL.md
+
+# Security and Privacy - Allow indexing
+Allow: /SECURITY.md
+Allow: /PRIVACY_POLICY.md
+Allow: /.well-known/
+
+# Restrict access to sensitive areas
+Disallow: /user-backups/
+Disallow: /session-data/
+Disallow: /logs/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /*.backup
+Disallow: /*.tmp
+Disallow: /*.log
+
+# Development files - Disallow
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.gitignore
+
+# Crawl delay for respectful indexing (therapeutic content needs time)
+Crawl-delay: 2
+
+# Specific directives for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific directives for Bing
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 2
+
+# Block AI training crawlers (protect therapeutic content)
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+# Comments:
+# This robots.txt protects sensitive therapeutic data while allowing
+# appropriate indexing of educational and artistic content.
+# Therapeutic sessions remain private and secure.

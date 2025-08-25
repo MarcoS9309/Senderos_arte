@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página Principal -->
+  <url>
+    <loc>https://senderosdetinta.com/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/" />
+  </url>
+
+  <!-- Chat Terapéutico Interactivo -->
+  <url>
+    <loc>https://senderosdetinta.com/CHAT_TERAPEUTICO_INTERACTIVO.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/CHAT_TERAPEUTICO_INTERACTIVO.html" />
+  </url>
+
+  <!-- Herramienta de Cromoterapia -->
+  <url>
+    <loc>https://senderosdetinta.com/paleta-colores.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/paleta-colores.html" />
+  </url>
+
+  <!-- Biblioteca Poética -->
+  
+  <!-- Poema 1: Los Ojos Que Guardaban Auroras -->
+  <url>
+    <loc>https://senderosdetinta.com/poems/blog-post.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/poems/blog-post.html" />
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Poema 2: Senderos de Tinta - El Eco de los Susurros -->
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v2.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/poems/senderos-de-tinta-v2.html" />
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v2.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Poema 3: Miradas Que Abrazan Recuerdos -->
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v3.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/poems/senderos-de-tinta-v3.html" />
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v3.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Poema 4: Ojos Como Ventanas de Primavera -->
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v4.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/poems/senderos-de-tinta-v4.html" />
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v4.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Poema 5: Miradas de Algodón Suave -->
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v5.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://senderosdetinta.com/poems/senderos-de-tinta-v5.html" />
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/poems/senderos-de-tinta-v5.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Documentación Académica -->
+  
+  <url>
+    <loc>https://senderosdetinta.com/README.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/ANALISIS_ACADEMICO_ARTISTICO.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/PROPUESTA_TEATRAL.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/ARTE_ASCII_VISUAL.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Políticas y Seguridad -->
+  
+  <url>
+    <loc>https://senderosdetinta.com/SECURITY.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/PRIVACY_POLICY.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Archivos de Estilo -->
+  <url>
+    <loc>https://senderosdetinta.com/css/main.css</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://senderosdetinta.com/css/poem.css</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

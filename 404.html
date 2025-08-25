@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página No Encontrada | Senderos de Tinta</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .error-description {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        .navigation-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .therapeutic-message {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .therapeutic-message h3 {
+            color: #e8b4cb;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        
+        <h1 class="error-message">🌙 El sendero que buscas no se encuentra aquí</h1>
+        
+        <p class="error-description">
+            Como las auroras que se ocultan tras las montañas, la página que buscas 
+            ha tomado un camino diferente. Pero no te preocupes, hay muchos otros 
+            senderos poéticos esperando ser explorados en nuestro jardín digital de sanación.
+        </p>
+        
+        <div class="navigation-links">
+            <a href="/" class="nav-link">🏠 Inicio</a>
+            <a href="/CHAT_TERAPEUTICO_INTERACTIVO.html" class="nav-link">💬 Chat Terapéutico</a>
+            <a href="/paleta-colores.html" class="nav-link">🎨 Cromoterapia</a>
+            <a href="/poems/blog-post.html" class="nav-link">📖 Poemas</a>
+        </div>
+        
+        <div class="therapeutic-message">
+            <h3>💫 Mensaje Terapéutico</h3>
+            <p>
+                Recuerda que perderse también puede ser parte del viaje. 
+                A veces los caminos no previstos nos llevan a descubrimientos hermosos. 
+                Permítete explorar con curiosidad y sin prisa.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Registro automático para análisis de errores (sin tracking personal)
+        console.log('🌟 Error 404 registrado en Senderos de Tinta');
+        console.log('📍 URL solicitada:', window.location.href);
+        console.log('💡 Sugerencia: Verifica la URL o navega desde el menú principal');
+        
+        // Redirección automática después de 30 segundos si el usuario no actúa
+        setTimeout(() => {
+            if (confirm('¿Te gustaría regresar a la página principal?')) {
+                window.location.href = '/';
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
