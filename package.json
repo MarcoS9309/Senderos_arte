@@ -1,0 +1,50 @@
+{
+  "name": "senderos-de-tinta",
+  "version": "1.0.0",
+  "description": "Un proyecto poético que explora la intersección entre poesía tradicional, inteligencia artificial y arte digital",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost --open=index.html",
+    "serve": "python3 -m http.server 8080",
+    "format": "prettier --write \"**/*.{html,css,md,json}\"",
+    "validate:html": "htmlhint *.html poems/*.html"
+  },
+  "keywords": [
+    "poesia",
+    "poetry",
+    "literatura",
+    "literature",
+    "arte-digital",
+    "digital-art",
+    "inteligencia-artificial",
+    "artificial-intelligence",
+    "creative-writing"
+  ],
+  "author": {
+    "name": "Luna de Otoño, Marco",
+    "email": "contact@senderosdetinta.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/senderos-de-tinta.git"
+  },
+  "homepage": "https://username.github.io/senderos-de-tinta/",
+  "bugs": {
+    "url": "https://github.com/username/senderos-de-tinta/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "live-server": "^1.2.2",
+    "prettier": "^3.1.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

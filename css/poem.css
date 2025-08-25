@@ -1,0 +1,505 @@
+/* ==========================================================================
+   Senderos de Tinta - Poem Styles
+   ========================================================================== */
+
+/* Poem-specific Variables
+   ========================================================================== */
+
+:root {
+    /* Poem Colors - Default Blue Theme */
+    --poem-primary: #34495e;
+    --poem-secondary: #5dade2;
+    --poem-accent: #3498db;
+    --poem-bg-light: #eaf2f8;
+    --poem-bg-gradient: linear-gradient(135deg, #eaf2f8, #d6eaf8);
+    --poem-text-highlight: #2980b9;
+    
+    /* Golden Theme for Version 2 */
+    --poem-v2-primary: #8b4513;
+    --poem-v2-secondary: #cd853f;
+    --poem-v2-accent: #d2691e;
+    --poem-v2-bg-light: #f4f1eb;
+    --poem-v2-bg-gradient: linear-gradient(135deg, #f4f1eb, #ede8dc);
+    --poem-v2-text-highlight: #8b4513;
+    
+    /* Green Theme for Version 3 - Affection */
+    --poem-v3-primary: #27ae60;
+    --poem-v3-secondary: #58d68d;
+    --poem-v3-accent: #2ecc71;
+    --poem-v3-bg-light: #eafaf1;
+    --poem-v3-bg-gradient: linear-gradient(135deg, #eafaf1, #d5f4e6);
+    --poem-v3-text-highlight: #1e8449;
+    
+    /* Pink Theme for Version 4 - Tenderness */
+    --poem-v4-primary: #e91e63;
+    --poem-v4-secondary: #f48fb1;
+    --poem-v4-accent: #ec407a;
+    --poem-v4-bg-light: #fce4ec;
+    --poem-v4-bg-gradient: linear-gradient(135deg, #fce4ec, #f8bbd9);
+    --poem-v4-text-highlight: #c2185b;
+    
+    /* Lavender Theme for Version 5 - Gentle Care */
+    --poem-v5-primary: #9c27b0;
+    --poem-v5-secondary: #ba68c8;
+    --poem-v5-accent: #ab47bc;
+    --poem-v5-bg-light: #f3e5f5;
+    --poem-v5-bg-gradient: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    --poem-v5-text-highlight: #7b1fa2;
+}
+
+/* Base Poem Styles
+   ========================================================================== */
+
+.poem-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(248, 252, 255, 0.98);
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(52, 73, 94, 0.2);
+}
+
+.poem-header {
+    background: linear-gradient(45deg, var(--poem-primary), #5d6d7e);
+    color: #ecf0f1;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.poem-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.03) 10px,
+        rgba(255, 255, 255, 0.03) 20px
+    );
+    animation: subtle-move 20s linear infinite;
+    will-change: transform;
+}
+
+@keyframes subtle-move {
+    0% { 
+        transform: translate(-50%, -50%) rotate(0deg); 
+    }
+    100% { 
+        transform: translate(-50%, -50%) rotate(360deg); 
+    }
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.blog-subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* Post Meta Information
+   ========================================================================== */
+
+.post-meta {
+    background: #f8f9fa;
+    padding: 1rem 2rem;
+    border-bottom: 3px solid #e9ecef;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Post Content
+   ========================================================================== */
+
+.post-content {
+    padding: 3rem 2rem;
+}
+
+.post-title {
+    font-size: 2.2rem;
+    color: var(--poem-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.post-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--poem-secondary), var(--poem-accent));
+    border-radius: 2px;
+}
+
+/* Verse Styles
+   ========================================================================== */
+
+.verse {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--poem-bg-gradient);
+    border-left: 4px solid var(--poem-secondary);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    position: relative;
+}
+
+.verse::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--poem-secondary);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    opacity: 0.3;
+    font-family: serif;
+}
+
+.stanza {
+    margin-bottom: 1.5rem;
+}
+
+/* Prose Styles
+   ========================================================================== */
+
+.prose {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    text-indent: 2rem;
+}
+
+/* Highlight Styles
+   ========================================================================== */
+
+.highlight {
+    background: linear-gradient(120deg, 
+        rgba(93, 173, 226, 0.2) 0%, 
+        rgba(52, 152, 219, 0.2) 100%
+    );
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--poem-text-highlight);
+}
+
+/* Tags
+   ========================================================================== */
+
+.tags {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.tag {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--poem-secondary), var(--poem-accent));
+    color: #ecf0f1;
+    padding: 0.3rem 0.8rem;
+    margin: 0.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer
+   ========================================================================== */
+
+.poem-footer {
+    background: var(--poem-primary);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Version 2 Styles (Golden Theme)
+   ========================================================================== */
+
+.poem-v2 {
+    background: linear-gradient(135deg, #d4a574 0%, #b8956b 50%, #9c8562 100%);
+}
+
+.poem-v2 .poem-container {
+    background: rgba(250, 248, 245, 0.98);
+    box-shadow: 0 0 40px rgba(52, 73, 94, 0.3);
+}
+
+.poem-v2 .poem-header {
+    background: linear-gradient(45deg, var(--poem-v2-primary), #a0522d);
+    color: #f4f1eb;
+}
+
+.poem-v2 .poem-header::before {
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    animation: subtle-move 25s linear infinite;
+}
+
+.poem-v2 .post-meta {
+    background: #f8f6f2;
+    border-bottom-color: #e6d9c7;
+    color: #8b7355;
+}
+
+.poem-v2 .post-title {
+    color: var(--poem-v2-primary);
+}
+
+.poem-v2 .post-title::after {
+    background: linear-gradient(45deg, var(--poem-v2-secondary), var(--poem-v2-accent));
+}
+
+.poem-v2 .verse {
+    background: var(--poem-v2-bg-gradient);
+    border-left-color: var(--poem-v2-secondary);
+}
+
+.poem-v2 .verse::before {
+    color: var(--poem-v2-secondary);
+}
+
+.poem-v2 .highlight {
+    background: linear-gradient(120deg, 
+        rgba(218, 165, 32, 0.2) 0%, 
+        rgba(205, 133, 63, 0.2) 100%
+    );
+    color: var(--poem-v2-text-highlight);
+}
+
+.poem-v2 .tag {
+    background: linear-gradient(45deg, var(--poem-v2-secondary), var(--poem-v2-accent));
+    color: #f4f1eb;
+}
+
+.poem-v2 .poem-footer {
+    background: var(--poem-v2-primary);
+    color: #f4f1eb;
+}
+
+/* Version 3 Styles (Green Theme - Affection)
+   ========================================================================== */
+
+.poem-v3 {
+    background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 50%, #68c583 100%);
+}
+
+.poem-v3 .poem-container {
+    background: rgba(234, 250, 241, 0.98);
+    box-shadow: 0 0 40px rgba(39, 174, 96, 0.3);
+}
+
+.poem-v3 .poem-header {
+    background: linear-gradient(45deg, var(--poem-v3-primary), #2ecc71);
+    color: #f4f1eb;
+}
+
+.poem-v3 .post-meta {
+    background: #eafaf1;
+    border-bottom-color: #d5f4e6;
+    color: #1e8449;
+}
+
+.poem-v3 .post-title {
+    color: var(--poem-v3-primary);
+}
+
+.poem-v3 .post-title::after {
+    background: linear-gradient(45deg, var(--poem-v3-secondary), var(--poem-v3-accent));
+}
+
+.poem-v3 .verse {
+    background: var(--poem-v3-bg-gradient);
+    border-left-color: var(--poem-v3-secondary);
+}
+
+.poem-v3 .verse::before {
+    color: var(--poem-v3-secondary);
+}
+
+.poem-v3 .highlight {
+    background: linear-gradient(120deg, 
+        rgba(88, 214, 141, 0.2) 0%, 
+        rgba(46, 204, 113, 0.2) 100%
+    );
+    color: var(--poem-v3-text-highlight);
+}
+
+.poem-v3 .tag {
+    background: linear-gradient(45deg, var(--poem-v3-secondary), var(--poem-v3-accent));
+    color: #f4f1eb;
+}
+
+.poem-v3 .poem-footer {
+    background: var(--poem-v3-primary);
+    color: #f4f1eb;
+}
+
+/* Version 4 Styles (Pink Theme - Tenderness)
+   ========================================================================== */
+
+.poem-v4 {
+    background: linear-gradient(135deg, #ffb3d1 0%, #ff8cc8 50%, #ff66bf 100%);
+}
+
+.poem-v4 .poem-container {
+    background: rgba(252, 228, 236, 0.98);
+    box-shadow: 0 0 40px rgba(233, 30, 99, 0.3);
+}
+
+.poem-v4 .poem-header {
+    background: linear-gradient(45deg, var(--poem-v4-primary), #ec407a);
+    color: #f4f1eb;
+}
+
+.poem-v4 .post-meta {
+    background: #fce4ec;
+    border-bottom-color: #f8bbd9;
+    color: #c2185b;
+}
+
+.poem-v4 .post-title {
+    color: var(--poem-v4-primary);
+}
+
+.poem-v4 .post-title::after {
+    background: linear-gradient(45deg, var(--poem-v4-secondary), var(--poem-v4-accent));
+}
+
+.poem-v4 .verse {
+    background: var(--poem-v4-bg-gradient);
+    border-left-color: var(--poem-v4-secondary);
+}
+
+.poem-v4 .verse::before {
+    color: var(--poem-v4-secondary);
+}
+
+.poem-v4 .highlight {
+    background: linear-gradient(120deg, 
+        rgba(244, 143, 177, 0.2) 0%, 
+        rgba(236, 64, 122, 0.2) 100%
+    );
+    color: var(--poem-v4-text-highlight);
+}
+
+.poem-v4 .tag {
+    background: linear-gradient(45deg, var(--poem-v4-secondary), var(--poem-v4-accent));
+    color: #f4f1eb;
+}
+
+.poem-v4 .poem-footer {
+    background: var(--poem-v4-primary);
+    color: #f4f1eb;
+}
+
+/* Version 5 Styles (Lavender Theme - Gentle Care)
+   ========================================================================== */
+
+.poem-v5 {
+    background: linear-gradient(135deg, #dcc7e8 0%, #ce93d8 50%, #c081c5 100%);
+}
+
+.poem-v5 .poem-container {
+    background: rgba(243, 229, 245, 0.98);
+    box-shadow: 0 0 40px rgba(156, 39, 176, 0.3);
+}
+
+.poem-v5 .poem-header {
+    background: linear-gradient(45deg, var(--poem-v5-primary), #ab47bc);
+    color: #f4f1eb;
+}
+
+.poem-v5 .post-meta {
+    background: #f3e5f5;
+    border-bottom-color: #e1bee7;
+    color: #7b1fa2;
+}
+
+.poem-v5 .post-title {
+    color: var(--poem-v5-primary);
+}
+
+.poem-v5 .post-title::after {
+    background: linear-gradient(45deg, var(--poem-v5-secondary), var(--poem-v5-accent));
+}
+
+.poem-v5 .verse {
+    background: var(--poem-v5-bg-gradient);
+    border-left-color: var(--poem-v5-secondary);
+}
+
+.poem-v5 .verse::before {
+    color: var(--poem-v5-secondary);
+}
+
+.poem-v5 .highlight {
+    background: linear-gradient(120deg, 
+        rgba(186, 104, 200, 0.2) 0%, 
+        rgba(171, 71, 188, 0.2) 100%
+    );
+    color: var(--poem-v5-text-highlight);
+}
+
+.poem-v5 .tag {
+    background: linear-gradient(45deg, var(--poem-v5-secondary), var(--poem-v5-accent));
+    color: #f4f1eb;
+}
+
+.poem-v5 .poem-footer {
+    background: var(--poem-v5-primary);
+    color: #f4f1eb;
+}
+
+/* Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2rem;
+    }
+    
+    .post-title {
+        font-size: 1.8rem;
+    }
+    
+    .verse {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .post-content {
+        padding: 2rem 1rem;
+    }
+}

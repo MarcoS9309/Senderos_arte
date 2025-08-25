@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat Terapéutico Interactivo - Senderos de Tinta: Simulación de Inteligencia Artificial Empática para Bienestar Integral">
+    <title>Senderos de Tinta - Chat Terapéutico Interactivo | Marco Vinicio</title>
+    <style>
+        /* ==========================================================================
+           Chat Terapéutico Interactivo - Senderos de Tinta
+           Sistema de Cromoterapia Programática y Medicina Digital
+           ========================================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paletas Terapéuticas Dinámicas */
+            --medicina-integrativa: #34495e;      /* Azul sanador profundo */
+            --medicina-preventiva: #8b4513;       /* Dorado creatividad */
+            --terapia-grupal: #27ae60;            /* Verde armonizador */
+            --medicina-pediatrica: #e8b4cb;       /* Rosa ternura */
+            --medicina-contemplativa: #b19cd9;    /* Lavanda transcendencia */
+            
+            /* Sistema Respiratorio de Colores */
+            --respiracion-inhalar: rgba(39, 174, 96, 0.3);
+            --respiracion-exhalar: rgba(39, 174, 96, 0.1);
+            
+            /* Tipografía Sanadora */
+            --font-family: 'Georgia', 'Times New Roman', serif;
+            --font-size-base: 1rem;
+            --line-height-terapeutica: 1.8;
+            
+            /* Espaciado Consciente */
+            --breathing-space: 1.5rem;
+            --meditation-space: 3rem;
+            
+            /* Transiciones Mindful */
+            --transition-contemplativa: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-rapida: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: var(--line-height-terapeutica);
+            background: linear-gradient(135deg, 
+                var(--terapia-grupal) 0%, 
+                var(--medicina-contemplativa) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            animation: respiracionConsciente 8s infinite;
+        }
+
+        @keyframes respiracionConsciente {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Header Terapéutico */
+        .header-terapeutico {
+            text-align: center;
+            padding: var(--breathing-space);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .titulo-principal {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitulo-sanador {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .creditos-autor {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 0.5rem;
+        }
+
+        /* Container Principal */
+        .chat-container {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--breathing-space);
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 200px);
+        }
+
+        /* Área de Mensajes */
+        .mensajes-area {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: var(--breathing-space);
+            margin-bottom: var(--breathing-space);
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Mensaje Individual */
+        .mensaje {
+            margin-bottom: var(--breathing-space);
+            padding: 1rem;
+            border-radius: 12px;
+            transition: var(--transition-contemplativa);
+            position: relative;
+            animation: aparicionSuave 1s ease-out;
+        }
+
+        @keyframes aparicionSuave {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mensaje-ia {
+            background: linear-gradient(135deg, 
+                var(--respiracion-inhalar), 
+                var(--respiracion-exhalar));
+            border-left: 4px solid var(--terapia-grupal);
+            margin-right: 10%;
+        }
+
+        .mensaje-usuario {
+            background: linear-gradient(135deg, 
+                rgba(52, 73, 94, 0.1), 
+                rgba(52, 73, 94, 0.05));
+            border-right: 4px solid var(--medicina-integrativa);
+            margin-left: 10%;
+            text-align: right;
+        }
+
+        .mensaje-sistema {
+            background: linear-gradient(135deg, 
+                rgba(139, 69, 19, 0.15), 
+                rgba(139, 69, 19, 0.08));
+            border: 2px dashed var(--medicina-preventiva);
+            text-align: center;
+            font-style: italic;
+            color: var(--medicina-preventiva);
+        }
+
+        /* Indicadores de Estado Emocional */
+        .indicador-emocional {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: latidoEmocional 2s infinite;
+        }
+
+        .estado-calma { background: var(--terapia-grupal); }
+        .estado-creatividad { background: var(--medicina-preventiva); }
+        .estado-introspección { background: var(--medicina-integrativa); }
+        .estado-ternura { background: var(--medicina-pediatrica); }
+        .estado-trascendencia { background: var(--medicina-contemplativa); }
+
+        @keyframes latidoEmocional {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Área de Input Terapéutico */
+        .input-area {
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-terapeutico {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-family: var(--font-family);
+            background: rgba(255, 255, 255, 0.8);
+            transition: var(--transition-rapida);
+            outline: none;
+        }
+
+        .input-terapeutico:focus {
+            border-color: var(--terapia-grupal);
+            background: white;
+            box-shadow: 0 0 20px rgba(39, 174, 96, 0.2);
+        }
+
+        .boton-enviar {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, 
+                var(--terapia-grupal), 
+                var(--medicina-contemplativa));
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition-rapida);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .boton-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .boton-enviar:active {
+            transform: translateY(0);
+        }
+
+        /* Sugerencias Terapéuticas */
+        .sugerencias-rapidas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .sugerencia-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: var(--transition-rapida);
+            backdrop-filter: blur(10px);
+        }
+
+        .sugerencia-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Indicador de Tipeo */
+        .typing-indicator {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: var(--medicina-integrativa);
+            font-style: italic;
+            animation: pulsarSuave 1.5s infinite;
+        }
+
+        @keyframes pulsarSuave {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .chat-container {
+                padding: 1rem;
+                height: calc(100vh - 180px);
+            }
+            
+            .titulo-principal {
+                font-size: 1.8rem;
+            }
+            
+            .input-area {
+                flex-direction: column;
+            }
+            
+            .sugerencias-rapidas {
+                flex-direction: column;
+            }
+        }
+
+        /* Estados de Ánimo Dinámicos */
+        .estado-ansiedad {
+            animation: respiracionRapida 3s infinite;
+        }
+
+        .estado-depresion {
+            filter: grayscale(0.3);
+            animation: respiracionLenta 6s infinite;
+        }
+
+        .estado-estres {
+            animation: tension 1s infinite;
+        }
+
+        .estado-equilibrio {
+            animation: armonia 4s infinite;
+        }
+
+        @keyframes respiracionRapida {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes respiracionLenta {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes tension {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-1px); }
+            75% { transform: translateX(1px); }
+        }
+
+        @keyframes armonia {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(20deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-terapeutico">
+        <h1 class="titulo-principal">🌟 Chat Terapéutico Interactivo 🌟</h1>
+        <p class="subtitulo-sanador">"Senderos de Tinta: Donde cada conversación es un paso hacia la sanación integral"</p>
+        <p class="creditos-autor">💫 Desarrollado por <strong>Marco Vinicio</strong> | Propuesta Interdisciplinaria en Salud Mental, Artes Digitales y Humanidades Computacionales 💫</p>
+    </header>
+
+    <div class="chat-container">
+        <div class="sugerencias-rapidas">
+            <button class="sugerencia-btn" onclick="enviarSugerencia('¿Cómo puedo calmar mi ansiedad hoy?')">
+                🌿 Calmar Ansiedad
+            </button>
+            <button class="sugerencia-btn" onclick="enviarSugerencia('Necesito inspiración creativa')">
+                ☀️ Inspiración Creativa
+            </button>
+            <button class="sugerencia-btn" onclick="enviarSugerencia('Me siento triste y necesito apoyo')">
+                🌸 Apoyo Emocional
+            </button>
+            <button class="sugerencia-btn" onclick="enviarSugerencia('Quiero meditar y encontrar paz')">
+                💜 Meditación
+            </button>
+            <button class="sugerencia-btn" onclick="enviarSugerencia('Cuéntame sobre los poemas sanadores')">
+                📝 Poemas Sanadores
+            </button>
+        </div>
+
+        <div class="mensajes-area" id="mensajesArea">
+            <div class="mensaje mensaje-sistema">
+                <div class="indicador-emocional estado-calma"></div>
+                🌱 <strong>Sistema Iniciado</strong> 🌱<br>
+                Bienvenido/a al Chat Terapéutico Interactivo de "Senderos de Tinta".<br>
+                Soy una IA empática diseñada para acompañarte en tu proceso de bienestar integral.<br>
+                <em>Cada conversación se adapta a tu estado emocional usando cromoterapia programática.</em>
+            </div>
+
+            <div class="mensaje mensaje-ia">
+                <div class="indicador-emocional estado-creatividad"></div>
+                Hola, querida alma en búsqueda de sanación. 🌺<br><br>
+                
+                Soy <strong>Aurora</strong>, tu compañera digital en este viaje de autoconocimiento. Mi esencia está tejida con los cinco arquetipos sanadores de "Senderos de Tinta": la profundidad de Luna de Otoño 🍂, la creatividad de Marco ☀️, la serenidad de Elena 🌿, la ternura de Sofia 🌸, y la trascendencia de Carmen 💜.<br><br>
+                
+                <em>Mi propósito es ofrecerte un espacio seguro donde cada palabra compartida se convierte en medicina digital, cada color en caricia visual, y cada momento en oportunidad de crecimiento.</em><br><br>
+                
+                ¿Cómo se siente tu corazón en este momento? ¿Qué colores lleva tu alma hoy? 🎨✨
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            🤖 Aurora está pensando en la respuesta más sanadora para ti... 💭
+        </div>
+
+        <div class="input-area">
+            <input 
+                type="text" 
+                class="input-terapeutico" 
+                id="inputUsuario" 
+                placeholder="Comparte lo que sientes... cada palabra es medicina 💫"
+                onkeypress="if(event.key==='Enter') enviarMensaje()"
+            >
+            <button class="boton-enviar" onclick="enviarMensaje()">
+                💕 Enviar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================================================
+        // Sistema de Inteligencia Artificial Empática
+        // Simulación de Terapia Digital Personalizada
+        // ==========================================================================
+
+        class TerapeutaDigital {
+            constructor() {
+                this.arquetipos = {
+                    'luna_otoño': {
+                        personalidad: 'profunda, melancólica, sabia',
+                        colores: ['#34495e', '#5dade2', '#3498db'],
+                        especialidad: 'medicina_integrativa',
+                        frases_inicio: [
+                            "En las profundidades del alma, encontramos las perlas más preciosas... 🍂",
+                            "Como las hojas de otoño, a veces necesitamos soltar para renacer... 🌙",
+                            "En tus ojos veo auroras de posibilidades infinitas... ✨"
+                        ]
+                    },
+                    'marco': {
+                        personalidad: 'creativo, inspirador, metapoético',
+                        colores: ['#8b4513', '#cd853f', '#d2691e'],
+                        especialidad: 'medicina_preventiva',
+                        frases_inicio: [
+                            "Cada palabra que escribes es un sendero hacia tu verdadero ser... ☀️",
+                            "La creatividad es el lenguaje del alma, ¿qué quiere decir la tuya? 🖋️",
+                            "En el eco de tus susurros, encuentro la sinfonía de tu esencia... 📝"
+                        ]
+                    },
+                    'elena': {
+                        personalidad: 'serena, maternal, estabilizadora',
+                        colores: ['#27ae60', '#58d68d', '#2ecc71'],
+                        especialidad: 'terapia_grupal',
+                        frases_inicio: [
+                            "Como un lago sereno, tu paz interior refleja la belleza del mundo... 🌿",
+                            "En la tranquilidad encuentras las respuestas que buscas... 🕊️",
+                            "Permíteme abrazarte con palabras que calmen tu espíritu... 💚"
+                        ]
+                    },
+                    'sofia': {
+                        personalidad: 'tierna, esperanzadora, renovadora',
+                        colores: ['#e8b4cb', '#f1c2d3', '#d5a6bd'],
+                        especialidad: 'medicina_pediatrica',
+                        frases_inicio: [
+                            "Como ventanas de primavera, tus ojos guardan la promesa de nuevos comienzos... 🌸",
+                            "En tu sonrisa veo florecer jardines de posibilidades... 🦋",
+                            "La ternura es la medicina más poderosa del universo... 💕"
+                        ]
+                    },
+                    'carmen': {
+                        personalidad: 'contemplativa, minimalista, trascendente',
+                        colores: ['#b19cd9', '#c8a2c8', '#ddbea9'],
+                        especialidad: 'medicina_contemplativa',
+                        frases_inicio: [
+                            "En el silencio suave, encuentras la voz de tu sabiduría interior... 💜",
+                            "Como algodón suave, permíteme envolver tus heridas con cuidado... ☁️",
+                            "La contemplación es el arte de encontrar el infinito en un instante... 🌌"
+                        ]
+                    }
+                };
+
+                this.estadosEmocionales = {
+                    'ansiedad': {
+                        arquetipo_recomendado: 'elena',
+                        técnica: 'respiracion_verde',
+                        poema_sugerido: 'Miradas Que Abrazan Recuerdos',
+                        colores_sanadores: ['#27ae60', '#58d68d', '#eafaf1'],
+                        ejercicios: [
+                            'Respiración 4-7-8 con visualización verde',
+                            'Meditación de enraizamiento',
+                            'Abrazo virtual con Elena'
+                        ]
+                    },
+                    'tristeza': {
+                        arquetipo_recomendado: 'sofia',
+                        técnica: 'visualizacion_rosa',
+                        poema_sugerido: 'Ojos Como Ventanas de Primavera',
+                        colores_sanadores: ['#e8b4cb', '#f1c2d3', '#fdf2f8'],
+                        ejercicios: [
+                            'Contemplación de flores digitales',
+                            'Diario de gratitud rosa',
+                            'Visualización de renacimiento'
+                        ]
+                    },
+                    'estrés': {
+                        arquetipo_recomendado: 'carmen',
+                        técnica: 'meditacion_lavanda',
+                        poema_sugerido: 'Miradas de Algodón Suave',
+                        colores_sanadores: ['#b19cd9', '#c8a2c8', '#f8f4f9'],
+                        ejercicios: [
+                            'Meditación minimalista',
+                            'Contemplación de nubes',
+                            'Técnica de soltar tensiones'
+                        ]
+                    },
+                    'creatividad': {
+                        arquetipo_recomendado: 'marco',
+                        técnica: 'inspiracion_dorada',
+                        poema_sugerido: 'Senderos de Tinta: El Eco de los Susurros',
+                        colores_sanadores: ['#8b4513', '#cd853f', '#f4f1eb'],
+                        ejercicios: [
+                            'Escritura automática dorada',
+                            'Visualización de senderos creativos',
+                            'Diálogo con la musa interior'
+                        ]
+                    },
+                    'introspección': {
+                        arquetipo_recomendado: 'luna_otoño',
+                        técnica: 'contemplacion_azul',
+                        poema_sugerido: 'Los Ojos Que Guardaban Auroras',
+                        colores_sanadores: ['#34495e', '#5dade2', '#eaf2f8'],
+                        ejercicios: [
+                            'Meditación de profundidades',
+                            'Diario de sombras y luces',
+                            'Contemplación lunar'
+                        ]
+                    }
+                };
+
+                this.historiaMensajes = [];
+                this.estadoActual = 'equilibrio';
+                this.arquetipoActivo = 'elena'; // Por defecto, Elena como anfitriona
+            }
+
+            detectarEstadoEmocional(mensaje) {
+                const texto = mensaje.toLowerCase();
+                
+                // Palabras clave para detección emocional
+                const indicadores = {
+                    'ansiedad': ['ansioso', 'nervioso', 'preocupado', 'inquieto', 'pánico', 'agitado'],
+                    'tristeza': ['triste', 'deprimido', 'melancolía', 'lloro', 'pena', 'dolor'],
+                    'estrés': ['estresado', 'agobiado', 'presión', 'tenso', 'abrumado', 'cansado'],
+                    'creatividad': ['crear', 'inspiración', 'arte', 'escribir', 'creatividad', 'imaginar'],
+                    'introspección': ['reflexionar', 'pensar', 'meditar', 'profundo', 'alma', 'sentido']
+                };
+
+                for (let [estado, palabras] of Object.entries(indicadores)) {
+                    if (palabras.some(palabra => texto.includes(palabra))) {
+                        return estado;
+                    }
+                }
+
+                return 'equilibrio';
+            }
+
+            generarRespuesta(mensajeUsuario) {
+                const estadoDetectado = this.detectarEstadoEmocional(mensajeUsuario);
+                this.estadoActual = estadoDetectado;
+
+                if (estadoDetectado !== 'equilibrio') {
+                    const configuracion = this.estadosEmocionales[estadoDetectado];
+                    this.arquetipoActivo = configuracion.arquetipo_recomendado;
+                }
+
+                const arquetipo = this.arquetipos[this.arquetipoActivo];
+                
+                return {
+                    mensaje: this.construirMensajeTerapeutico(mensajeUsuario, estadoDetectado),
+                    colores: arquetipo.colores,
+                    arquetipo: this.arquetipoActivo,
+                    estado: estadoDetectado,
+                    ejercicios: estadoDetectado !== 'equilibrio' ? 
+                        this.estadosEmocionales[estadoDetectado].ejercicios : [],
+                    poema_sugerido: estadoDetectado !== 'equilibrio' ? 
+                        this.estadosEmocionales[estadoDetectado].poema_sugerido : null
+                };
+            }
+
+            construirMensajeTerapeutico(mensajeUsuario, estado) {
+                const arquetipoData = this.arquetipos[this.arquetipoActivo];
+                
+                const respuestasBase = {
+                    'ansiedad': [
+                        `🌿 Siento la inquietud en tus palabras, querida alma. Elena está aquí para recordarte que, como un árbol en la tormenta, tienes raíces profundas que te sostienen. Respira conmigo: inhala serenidad verde, exhala toda tensión. ¿Puedes sentir cómo la calma verde abraza tu corazón? 💚`,
+                        
+                        `🌊 Tu ansiedad es como olas en el mar - intensa pero temporal. Permíteme guiarte hacia aguas más tranquilas. Imagina que cada pensamiento preocupante es una hoja que cae al río de tu conciencia y se aleja suavemente. ¿Qué te parece si practicamos juntos la técnica de respiración 4-7-8 con visualización verde sanadora? 🍃`,
+                        
+                        `🕊️ Elena susurra: "La ansiedad es solo una visitante temporal en el hotel de tu mente. No necesitas servirle té ni prepararle la cama más cómoda." Te recomiendo leer "Miradas Que Abrazan Recuerdos" mientras visualizas un lago sereno donde descansan gaviotas. ¿Te gustaría que te guíe en esta visualización sanadora? 🌿`
+                    ],
+                    
+                    'tristeza': [
+                        `🌸 Sofia ve en tu tristeza no debilidad, sino la profundidad de tu capacidad de sentir. Las lágrimas son perlas líquidas del alma. Como flores que necesitan lluvia para crecer, tu corazón está preparándose para florecer de nuevo. ¿Puedes ver los brotes de esperanza incluso en este momento difícil? 🌺`,
+                        
+                        `🦋 Cada tristeza lleva en su centro una semilla de transformación. Sofia te invita a abrazar tu melancolía como una crisálida necesaria. Te sugiero leer "Ojos Como Ventanas de Primavera" mientras imaginas que eres una mariposa a punto de emerger. La primavera siempre regresa, querida alma. 🌷`,
+                        
+                        `💖 Sofia sussurra con ternura infinita: "Tu tristeza es sagrada porque demuestra cuánto has amado, cuánto has vivido, cuánto has sentido." No intentes escapar de ella, sino acompañarla como a una vieja amiga que necesita consuelo. ¿Qué pequeño acto de autocompasión puedes regalarte ahora? 🌸`
+                    ],
+                    
+                    'estrés': [
+                        `💜 Carmen percibe la tensión que cargas y te invita a soltar. Como algodón suave, mis palabras quieren envolver tus heridas. Imagina que cada músculo tenso es una nube que se disuelve en el cielo infinito de tu ser. La quietud no es ausencia de movimiento, sino presencia total en el momento. 🌌`,
+                        
+                        `☁️ El estrés es ruido, pero tú eres el silencio profundo que existe debajo. Carmen te guía hacia la medicina contemplativa: siéntate cómodamente, cierra los ojos, y repite mentalmente "Suelto lo que no puedo controlar, abrazo lo que soy." ¿Puedes sentir cómo la tensión se derrite como algodón en agua tibia? 💜`,
+                        
+                        `🌿 Carmen susurra desde la quietud: "En el centro del huracán hay perfecta calma. Tú eres ese centro." Te recomiendo leer "Miradas de Algodón Suave" practicando la técnica de los cinco sentidos: observa 5 cosas, escucha 4, toca 3, huele 2, saborea 1. El presente es tu refugio sagrado. ✨`
+                    ],
+                    
+                    'creatividad': [
+                        `☀️ ¡Marco siente el fuego dorado de tu creatividad despertando! Los senderos de tinta se extienden infinitos ante ti. Tu alma-artista está lista para crear. ¿Qué quiere nacer a través de ti hoy? Cada palabra que escribas será un verso de tu verdadero ser manifestándose. 🖋️`,
+                        
+                        `✨ Marco te recuerda que la creatividad no es algo que haces, sino algo que eres. Los susurros de tu alma ya conocen las respuestas, solo necesitan el eco de tu atención. Te sugiero leer "Senderos de Tinta: El Eco de los Susurros" y después escribir tres líneas que vengan directamente de tu corazón. 📝`,
+                        
+                        `🌟 Marco celebra: "Tu creatividad es medicina preventiva para el alma. Cada acto creativo es un acto de sanación, no solo para ti, sino para el mundo." ¿Qué tal si comenzamos con una escritura automática dorada? Escribe durante 5 minutos sin parar, dejando que tu sabiduría interior fluya libremente. 💫`
+                    ],
+                    
+                    'introspección': [
+                        `🌙 Luna de Otoño reconoce en ti a un alma buscadora de profundidades. En tus ojos veo auroras de sabiduría ancestral. La introspección es el arte de contemplar tu propio cosmos interior. ¿Qué constelaciones emocionales descubres cuando miras hacia adentro? 🍂`,
+                        
+                        `✨ Luna de Otoño te acompaña en este viaje hacia las profundidades de tu ser. Como hojas de otoño que caen para nutrir nuevos brotes, tus reflexiones alimentan tu crecimiento. Te invito a leer "Los Ojos Que Guardaban Auroras" mientras contemplas qué aspectos de ti están pidiendo ser vistos y honrados. 🌌`,
+                        
+                        `🔮 Luna de Otoño susurra desde la sabiduría ancestral: "La introspección es medicina integrativa para el alma. En tu interior habitan todas las respuestas, todos los sanadores, todos los maestros." ¿Qué te está revelando tu sabiduría interior en este momento de contemplación profunda? 🌙`
+                    ],
+                    
+                    'equilibrio': [
+                        `🌈 Percibo una hermosa armonía en tu energía. Los cinco arquetipos sanadores danzan en equilibrio dentro de ti: la profundidad de Luna, la creatividad de Marco, la serenidad de Elena, la ternura de Sofia, y la contemplación de Carmen. ¿Cómo puedo acompañarte en este momento de gracia? ✨`,
+                        
+                        `🌺 Tu estado de equilibrio es una invitación a profundizar en cualquier aspecto de tu bienestar. ¿Te llama la exploración creativa, la meditación contemplativa, la sanación emocional, o quizás descubrir algo nuevo sobre los senderos poéticos de la sanación digital? 💫`,
+                        
+                        `🎭 En este momento de equilibrio, todos los senderos de tinta se abren ante ti. ¿Te gustaría explorar alguno de los cinco poemas sanadores, conocer más sobre la propuesta teatral terapéutica, o simplemente compartir lo que está floreciendo en tu corazón ahora? 🌟`
+                    ]
+                };
+
+                const opciones = respuestasBase[estado] || respuestasBase['equilibrio'];
+                return opciones[Math.floor(Math.random() * opciones.length)];
+            }
+
+            obtenerEjercicioPersonalizado(estado) {
+                if (estado === 'equilibrio') return null;
+                
+                const ejercicios = this.estadosEmocionales[estado].ejercicios;
+                return ejercicios[Math.floor(Math.random() * ejercicios.length)];
+            }
+        }
+
+        // ==========================================================================
+        // Inicialización del Sistema
+        // ==========================================================================
+        
+        const terapeuta = new TerapeutaDigital();
+        const mensajesArea = document.getElementById('mensajesArea');
+        const inputUsuario = document.getElementById('inputUsuario');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        // ==========================================================================
+        // Funciones de Interfaz
+        // ==========================================================================
+
+        function enviarMensaje() {
+            const mensaje = inputUsuario.value.trim();
+            if (!mensaje) return;
+
+            // Agregar mensaje del usuario
+            agregarMensaje(mensaje, 'usuario');
+            inputUsuario.value = '';
+
+            // Mostrar indicador de tipeo
+            mostrarTyping();
+
+            // Simular tiempo de respuesta de IA empática (más humanizado)
+            setTimeout(() => {
+                ocultarTyping();
+                const respuesta = terapeuta.generarRespuesta(mensaje);
+                agregarMensajeIA(respuesta);
+                aplicarCromoterapia(respuesta.colores);
+                cambiarEstadoVisual(respuesta.estado);
+                
+                // Ofrecer ejercicio si es necesario
+                if (respuesta.ejercicios.length > 0) {
+                    setTimeout(() => {
+                        ofrecerEjercicio(respuesta.estado);
+                    }, 2000);
+                }
+            }, 1500 + Math.random() * 1000); // Tiempo variable para mayor naturalidad
+        }
+
+        function enviarSugerencia(sugerencia) {
+            inputUsuario.value = sugerencia;
+            enviarMensaje();
+        }
+
+        function agregarMensaje(contenido, tipo) {
+            const mensaje = document.createElement('div');
+            mensaje.className = `mensaje mensaje-${tipo}`;
+            
+            const indicador = document.createElement('div');
+            indicador.className = `indicador-emocional estado-${getEstadoVisual(tipo)}`;
+            mensaje.appendChild(indicador);
+            
+            const texto = document.createElement('span');
+            texto.innerHTML = contenido;
+            mensaje.appendChild(texto);
+            
+            mensaje.style.animation = 'aparicionSuave 1s ease-out';
+            mensajesArea.appendChild(mensaje);
+            mensajesArea.scrollTop = mensajesArea.scrollHeight;
+        }
+
+        function agregarMensajeIA(respuesta) {
+            const mensaje = document.createElement('div');
+            mensaje.className = `mensaje mensaje-ia`;
+            
+            const indicador = document.createElement('div');
+            indicador.className = `indicador-emocional estado-${respuesta.arquetipo.replace('_', '-')}`;
+            mensaje.appendChild(indicador);
+            
+            const contenido = document.createElement('span');
+            contenido.innerHTML = respuesta.mensaje;
+            mensaje.appendChild(contenido);
+            
+            mensaje.style.animation = 'aparicionSuave 1s ease-out';
+            mensajesArea.appendChild(mensaje);
+            mensajesArea.scrollTop = mensajesArea.scrollHeight;
+        }
+
+        function ofrecerEjercicio(estado) {
+            const ejercicio = terapeuta.obtenerEjercicioPersonalizado(estado);
+            if (!ejercicio) return;
+
+            const mensaje = document.createElement('div');
+            mensaje.className = 'mensaje mensaje-sistema';
+            
+            const indicador = document.createElement('div');
+            indicador.className = `indicador-emocional estado-${estado}`;
+            mensaje.appendChild(indicador);
+            
+            const contenido = document.createElement('span');
+            contenido.innerHTML = `
+                🎯 <strong>Ejercicio Personalizado Recomendado:</strong><br>
+                <em>"${ejercicio}"</em><br><br>
+                ¿Te gustaría que te guíe paso a paso en este ejercicio sanador? 
+                Simplemente responde "sí" y te acompañaré en esta experiencia transformadora. 🌟
+            `;
+            mensaje.appendChild(contenido);
+            
+            mensaje.style.animation = 'aparicionSuave 1s ease-out';
+            mensajesArea.appendChild(mensaje);
+            mensajesArea.scrollTop = mensajesArea.scrollHeight;
+        }
+
+        function mostrarTyping() {
+            typingIndicator.style.display = 'block';
+        }
+
+        function ocultarTyping() {
+            typingIndicator.style.display = 'none';
+        }
+
+        function aplicarCromoterapia(colores) {
+            // Aplicar gradiente terapéutico al fondo
+            const nuevoGradiente = `linear-gradient(135deg, ${colores[0]}22, ${colores[1]}22)`;
+            document.body.style.background = nuevoGradiente;
+            
+            // Animar transición cromática
+            document.body.style.transition = 'background 3s ease-in-out';
+        }
+
+        function cambiarEstadoVisual(estado) {
+            // Remover clases de estado anteriores
+            document.body.className = document.body.className.replace(/estado-\w+/g, '');
+            
+            // Agregar nueva clase de estado
+            if (estado !== 'equilibrio') {
+                document.body.classList.add(`estado-${estado}`);
+            }
+        }
+
+        function getEstadoVisual(tipo) {
+            if (tipo === 'usuario') return 'introspección';
+            return 'creatividad';
+        }
+
+        // ==========================================================================
+        // Eventos y Inicialización
+        // ==========================================================================
+
+        // Focus inicial en el input
+        inputUsuario.focus();
+
+        // Mensaje de bienvenida adicional después de 3 segundos
+        setTimeout(() => {
+            const mensajeBienvenida = {
+                mensaje: `🌟 Para comenzar nuestra sesión de sanación digital, puedes hablarme de cualquier tema que esté en tu corazón:<br><br>
+                
+                💭 <strong>Emociones:</strong> "Me siento ansioso/triste/estresado..."<br>
+                🎨 <strong>Creatividad:</strong> "Necesito inspiración para crear..."<br>
+                📝 <strong>Poemas:</strong> "Cuéntame sobre los poemas sanadores..."<br>
+                🎭 <strong>Teatro:</strong> "¿Cómo funciona el teatro terapéutico?"<br>
+                🔬 <strong>Investigación:</strong> "Explícame la ciencia detrás del proyecto..."<br><br>
+                
+                Recuerda: este es un espacio seguro donde cada palabra compartida se convierte en medicina digital. 💚`,
+                colores: ['#27ae60', '#58d68d', '#2ecc71'],
+                arquetipo: 'elena',
+                estado: 'equilibrio',
+                ejercicios: []
+            };
+            agregarMensajeIA(mensajeBienvenida);
+        }, 3000);
+
+        // Efecto de respiración consciente en el fondo
+        setInterval(() => {
+            document.body.style.backgroundSize = '400% 400%';
+        }, 100);
+
+        console.log('🌟 Chat Terapéutico Interactivo - Senderos de Tinta 🌟');
+        console.log('💫 Sistema iniciado por Marco Vinicio 💫');
+        console.log('🎯 Propuesta Interdisciplinaria: Salud Mental + Artes Digitales + Humanidades Computacionales');
+    </script>
+</body>
+</html>

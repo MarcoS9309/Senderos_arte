@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paleta de colores interactiva inspirada en los poemas de Senderos de Tinta">
+    <meta name="keywords" content="paleta, colores, poesía, diseño, interactivo">
+    <meta name="author" content="Senderos de Tinta">
+    <title>Paleta de Colores - Senderos de Tinta</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .color-palette {
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .palette-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .palette-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .palette-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .palette-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .poem-palettes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .poem-palette {
+            background: white;
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: transform var(--transition-medium);
+            cursor: pointer;
+        }
+
+        .poem-palette:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-medium);
+        }
+
+        .poem-palette.active {
+            border: 3px solid var(--secondary-color);
+        }
+
+        .poem-palette h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .poem-palette .poem-author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .color-swatches {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-swatch.selected {
+            transform: scale(1.15);
+            border-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .color-info {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .color-swatch:hover .color-info {
+            opacity: 1;
+        }
+
+        /* Paletas específicas por poema */
+        .palette-v1 .color-swatches .color-swatch:nth-child(1) { background: #d4a574; } /* Dorado otoñal */
+        .palette-v1 .color-swatches .color-swatch:nth-child(2) { background: #8b4513; } /* Marrón gata */
+        .palette-v1 .color-swatches .color-swatch:nth-child(3) { background: #ffd700; } /* Ámbar líquido */
+        .palette-v1 .color-swatches .color-swatch:nth-child(4) { background: #2c1810; } /* Sombra profunda */
+
+        .palette-v2 .color-swatches .color-swatch:nth-child(1) { background: #cd853f; } /* Oro pergamino */
+        .palette-v2 .color-swatches .color-swatch:nth-child(2) { background: #8b7355; } /* Tinta seca */
+        .palette-v2 .color-swatches .color-swatch:nth-child(3) { background: #daa520; } /* Luz dorada */
+        .palette-v2 .color-swatches .color-swatch:nth-child(4) { background: #3e2723; } /* Profundidad */
+
+        .palette-v3 .color-swatches .color-swatch:nth-child(1) { background: #58d68d; } /* Verde sereno */
+        .palette-v3 .color-swatches .color-swatch:nth-child(2) { background: #27ae60; } /* Verde esperanza */
+        .palette-v3 .color-swatches .color-swatch:nth-child(3) { background: #a8e6cf; } /* Verde suave */
+        .palette-v3 .color-swatches .color-swatch:nth-child(4) { background: #1e8449; } /* Verde profundo */
+
+        .palette-v4 .color-swatches .color-swatch:nth-child(1) { background: #f48fb1; } /* Rosa tierno */
+        .palette-v4 .color-swatches .color-swatch:nth-child(2) { background: #e91e63; } /* Rosa primavera */
+        .palette-v4 .color-swatches .color-swatch:nth-child(3) { background: #ffb3d1; } /* Rosa agua */
+        .palette-v4 .color-swatches .color-swatch:nth-child(4) { background: #c2185b; } /* Rosa intenso */
+
+        .palette-v5 .color-swatches .color-swatch:nth-child(1) { background: #ba68c8; } /* Lavanda suave */
+        .palette-v5 .color-swatches .color-swatch:nth-child(2) { background: #9c27b0; } /* Púrpura cuidado */
+        .palette-v5 .color-swatches .color-swatch:nth-child(3) { background: #dcc7e8; } /* Malva algodón */
+        .palette-v5 .color-swatches .color-swatch:nth-child(4) { background: #7b1fa2; } /* Morado refugio */
+
+        .selected-color-display {
+            background: white;
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            text-align: center;
+        }
+
+        .selected-color-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid #eee;
+            transition: all var(--transition-medium);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .selected-color-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .color-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-codes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-code {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-family: monospace;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+
+        .color-code:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .color-inspiration {
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all var(--transition-medium);
+            z-index: 1000;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .poem-palettes {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-codes {
+                grid-template-columns: 1fr;
+            }
+            
+            .palette-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .nav-link {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .palette-title {
+                font-size: 2rem;
+            }
+            
+            .selected-color-preview {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .color-name {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Paleta de Colores</h1>
+            <p class="subtitle">Explora los matices emocionales de cada poema a través del color</p>
+        </header>
+
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 Inicio</a>
+                <a href="#paletas" class="nav-link">🎨 Paletas</a>
+                <a href="#inspiracion" class="nav-link">💡 Inspiración</a>
+            </div>
+        </nav>
+
+        <main class="color-palette">
+            <div class="palette-container">
+                <div class="palette-header">
+                    <h2 class="palette-title">Colores Poéticos</h2>
+                    <p class="palette-description">
+                        Cada poema inspira una paleta única que refleja sus emociones y metáforas. 
+                        Haz clic en cualquier color para explorarlo en detalle.
+                    </p>
+                </div>
+
+                <section id="paletas">
+                    <div class="poem-palettes">
+                        <div class="poem-palette palette-v1" data-poem="v1">
+                            <h3>Los Ojos Que Guardaban Auroras</h3>
+                            <p class="poem-author">Luna de Otoño</p>
+                            <div class="color-swatches">
+                                <div class="color-swatch" data-color="#d4a574" data-name="Dorado Otoñal" data-inspiration="Como el primer sol de octubre en ojos de gata">
+                                    <div class="color-info">#d4a574</div>
+                                </div>
+                                <div class="color-swatch" data-color="#8b4513" data-name="Marrón Felino" data-inspiration="La sabiduría antigua de los felinos">
+                                    <div class="color-info">#8b4513</div>
+                                </div>
+                                <div class="color-swatch" data-color="#ffd700" data-name="Ámbar Líquido" data-inspiration="Pupilas de ámbar líquido brillante">
+                                    <div class="color-info">#ffd700</div>
+                                </div>
+                                <div class="color-swatch" data-color="#2c1810" data-name="Sombra Profunda" data-inspiration="Pinceladas de sombra sobre miradas">
+                                    <div class="color-info">#2c1810</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="poem-palette palette-v2" data-poem="v2">
+                            <h3>El Eco de los Susurros</h3>
+                            <p class="poem-author">Marco</p>
+                            <div class="color-swatches">
+                                <div class="color-swatch" data-color="#cd853f" data-name="Oro Pergamino" data-inspiration="Lágrimas de luna sobre pergaminos antiguos">
+                                    <div class="color-info">#cd853f</div>
+                                </div>
+                                <div class="color-swatch" data-color="#8b7355" data-name="Tinta Seca" data-inspiration="Senderos donde la tinta se derrama">
+                                    <div class="color-info">#8b7355</div>
+                                </div>
+                                <div class="color-swatch" data-color="#daa520" data-name="Luz Dorada" data-inspiration="Puentes dorados que conectan almas">
+                                    <div class="color-info">#daa520</div>
+                                </div>
+                                <div class="color-swatch" data-color="#3e2723" data-name="Profundidad" data-inspiration="Las profundidades del alma como manantiales">
+                                    <div class="color-info">#3e2723</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="poem-palette palette-v3" data-poem="v3">
+                            <h3>Miradas Que Abrazan Recuerdos</h3>
+                            <p class="poem-author">Elena</p>
+                            <div class="color-swatches">
+                                <div class="color-swatch" data-color="#58d68d" data-name="Verde Sereno" data-inspiration="Lagos donde descansan las gaviotas">
+                                    <div class="color-info">#58d68d</div>
+                                </div>
+                                <div class="color-swatch" data-color="#27ae60" data-name="Verde Esperanza" data-inspiration="Tardes de primavera en pupilas tranquilas">
+                                    <div class="color-info">#27ae60</div>
+                                </div>
+                                <div class="color-swatch" data-color="#a8e6cf" data-name="Verde Suave" data-inspiration="Jardín lleno de mariposas cuando sonríe">
+                                    <div class="color-info">#a8e6cf</div>
+                                </div>
+                                <div class="color-swatch" data-color="#1e8449" data-name="Verde Profundo" data-inspiration="La profundidad de la amistad verdadera">
+                                    <div class="color-info">#1e8449</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="poem-palette palette-v4" data-poem="v4">
+                            <h3>Ojos Como Ventanas de Primavera</h3>
+                            <p class="poem-author">Sofia</p>
+                            <div class="color-swatches">
+                                <div class="color-swatch" data-color="#f48fb1" data-name="Rosa Tierno" data-inspiration="Ventanas abiertas al asombro infantil">
+                                    <div class="color-info">#f48fb1</div>
+                                </div>
+                                <div class="color-swatch" data-color="#e91e63" data-name="Rosa Primavera" data-inspiration="Rayos de sol matutino bailando">
+                                    <div class="color-info">#e91e63</div>
+                                </div>
+                                <div class="color-swatch" data-color="#ffb3d1" data-name="Rosa Agua" data-inspiration="Pupilas de agua clara cristalina">
+                                    <div class="color-info">#ffb3d1</div>
+                                </div>
+                                <div class="color-swatch" data-color="#c2185b" data-name="Rosa Intenso" data-inspiration="Pequeñas linternas que iluminan detalles">
+                                    <div class="color-info">#c2185b</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="poem-palette palette-v5" data-poem="v5">
+                            <h3>Miradas de Algodón Suave</h3>
+                            <p class="poem-author">Carmen</p>
+                            <div class="color-swatches">
+                                <div class="color-swatch" data-color="#ba68c8" data-name="Lavanda Suave" data-inspiration="Nubes que acarician montañas gentilmente">
+                                    <div class="color-info">#ba68c8</div>
+                                </div>
+                                <div class="color-swatch" data-color="#9c27b0" data-name="Púrpura Cuidado" data-inspiration="La paciencia infinita del cuidado">
+                                    <div class="color-info">#9c27b0</div>
+                                </div>
+                                <div class="color-swatch" data-color="#dcc7e8" data-name="Malva Algodón" data-inspiration="Pupilas de algodón suave y protector">
+                                    <div class="color-info">#dcc7e8</div>
+                                </div>
+                                <div class="color-swatch" data-color="#7b1fa2" data-name="Morado Refugio" data-inspiration="Pequeños oasis en el desierto del alma">
+                                    <div class="color-info">#7b1fa2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="inspiracion">
+                    <div class="selected-color-display">
+                        <div class="selected-color-preview" id="colorPreview"></div>
+                        <div class="selected-color-details">
+                            <div class="color-name" id="colorName">Selecciona un color</div>
+                            <div class="color-codes">
+                                <div class="color-code" id="hexCode" data-format="HEX">#667eea</div>
+                                <div class="color-code" id="rgbCode" data-format="RGB">rgb(102, 126, 234)</div>
+                                <div class="color-code" id="hslCode" data-format="HSL">hsl(229, 76%, 66%)</div>
+                            </div>
+                            <p class="color-inspiration" id="colorInspiration">
+                                Explora los colores que capturan la esencia poética de cada verso
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>Senderos de Tinta</strong> - Donde cada color cuenta una historia poética</p>
+                <div class="footer-links">
+                    <a href="index.html">Volver al Inicio</a>
+                    <a href="#paletas">Explorar Paletas</a>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2025 Senderos de Tinta. Donde cada palabra encuentra su color perfecto.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+        Color copiado al portapapeles
+    </div>
+
+    <script>
+        // Funcionalidad de la paleta de colores interactiva
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorSwatches = document.querySelectorAll('.color-swatch');
+            const colorPreview = document.getElementById('colorPreview');
+            const colorName = document.getElementById('colorName');
+            const colorInspiration = document.getElementById('colorInspiration');
+            const hexCode = document.getElementById('hexCode');
+            const rgbCode = document.getElementById('rgbCode');
+            const hslCode = document.getElementById('hslCode');
+            const copyNotification = document.getElementById('copyNotification');
+            const poemPalettes = document.querySelectorAll('.poem-palette');
+
+            // Función para convertir hex a RGB
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+            }
+
+            // Función para convertir RGB a HSL
+            function rgbToHsl(r, g, b) {
+                r /= 255; g /= 255; b /= 255;
+                const max = Math.max(r, g, b), min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+
+                if (max === min) {
+                    h = s = 0;
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+                    h /= 6;
+                }
+
+                return {
+                    h: Math.round(h * 360),
+                    s: Math.round(s * 100),
+                    l: Math.round(l * 100)
+                };
+            }
+
+            // Función para mostrar notificación de copia
+            function showCopyNotification() {
+                copyNotification.classList.add('show');
+                setTimeout(() => {
+                    copyNotification.classList.remove('show');
+                }, 2000);
+            }
+
+            // Función para copiar al portapapeles
+            async function copyToClipboard(text) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    showCopyNotification();
+                } catch (err) {
+                    console.error('Error al copiar: ', err);
+                }
+            }
+
+            // Event listeners para los swatches de color
+            colorSwatches.forEach(swatch => {
+                swatch.addEventListener('click', function() {
+                    // Remover selección anterior
+                    colorSwatches.forEach(s => s.classList.remove('selected'));
+                    
+                    // Seleccionar el color actual
+                    this.classList.add('selected');
+                    
+                    const color = this.dataset.color;
+                    const name = this.dataset.name;
+                    const inspiration = this.dataset.inspiration;
+                    
+                    // Actualizar preview
+                    colorPreview.style.background = color;
+                    colorName.textContent = name;
+                    colorInspiration.textContent = inspiration;
+                    
+                    // Calcular y mostrar códigos de color
+                    const rgb = hexToRgb(color);
+                    const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                    
+                    hexCode.textContent = color.toUpperCase();
+                    rgbCode.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+                    hslCode.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+                });
+            });
+
+            // Event listeners para copiar códigos de color
+            [hexCode, rgbCode, hslCode].forEach(element => {
+                element.addEventListener('click', function() {
+                    copyToClipboard(this.textContent);
+                });
+            });
+
+            // Event listeners para las paletas de poemas
+            poemPalettes.forEach(palette => {
+                palette.addEventListener('click', function() {
+                    poemPalettes.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
