@@ -1,0 +1,20 @@
+Contact: security@senderosdetinta.com
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://senderosdetinta.com/pgp-key.asc
+Acknowledgments: https://senderosdetinta.com/security-acknowledgments
+Preferred-Languages: es, en
+Canonical: https://senderosdetinta.com/.well-known/security.txt
+
+# Senderos de Tinta Security Information
+# 
+# This application handles sensitive therapeutic data.
+# Please report security vulnerabilities responsibly.
+#
+# Areas of particular concern:
+# - User input validation and sanitization
+# - Client-side data storage and privacy
+# - Content Security Policy bypass attempts
+# - Cross-site scripting (XSS) vulnerabilities
+# - Local storage security issues
+#
+# Thank you for helping keep our users' therapeutic journey secure.

@@ -1,0 +1,144 @@
+{
+  "name": "Senderos de Tinta - Chat Terapéutico",
+  "short_name": "Senderos",
+  "description": "Aplicación de terapia digital que combina inteligencia artificial, cromoterapia y medicina poética para el bienestar integral",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#27ae60",
+  "theme_color": "#34495e",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "es",
+  "categories": ["health", "medical", "wellness", "therapy"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-96x96.png", 
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-128x128.png",
+      "sizes": "128x128", 
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/screenshots/chat-terapeutico.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Interfaz principal del chat terapéutico"
+    },
+    {
+      "src": "assets/screenshots/mobile-chat.png",
+      "sizes": "750x1334",
+      "type": "image/png", 
+      "platform": "narrow",
+      "label": "Vista móvil del chat terapéutico"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat Terapéutico",
+      "short_name": "Chat",
+      "description": "Iniciar sesión de terapia digital",
+      "url": "/CHAT_TERAPEUTICO_INTERACTIVO.html",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-chat.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Paleta de Colores",
+      "short_name": "Colores", 
+      "description": "Herramienta de cromoterapia interactiva",
+      "url": "/paleta-colores.html",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-colors.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Biblioteca Poética",
+      "short_name": "Poemas",
+      "description": "Acceder a la colección de poemas terapéuticos",
+      "url": "/poems/",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-poems.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+senderos",
+      "url": "/?protocol=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/backup-import",
+      "accept": {
+        "application/json": [".json"],
+        "text/plain": [".txt"]
+      },
+      "icons": [
+        {
+          "src": "assets/icons/file-handler.png",
+          "sizes": "96x96"
+        }
+      ],
+      "launch_type": "single-client"
+    }
+  ]
+}

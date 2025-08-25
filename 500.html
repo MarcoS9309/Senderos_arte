@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Error del Servidor | Senderos de Tinta</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .error-description {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        .navigation-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .recovery-message {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .recovery-message h3 {
+            color: #f8c471;
+            margin-bottom: 1rem;
+        }
+        
+        .status-check {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">500</div>
+        
+        <h1 class="error-message">⚠️ El servidor está experimentando dificultades</h1>
+        
+        <p class="error-description">
+            Nuestro sistema digital de sanación está pasando por un momento de pausa técnica. 
+            Como el alma que necesita descanso para recuperarse, nuestros servidores requieren 
+            un momento de atención. Por favor, intenta nuevamente en unos minutos.
+        </p>
+        
+        <div class="navigation-links">
+            <a href="javascript:window.location.reload()" class="nav-link">🔄 Reintentar</a>
+            <a href="/" class="nav-link">🏠 Inicio</a>
+            <a href="/CHAT_TERAPEUTICO_INTERACTIVO.html" class="nav-link">💬 Chat Offline</a>
+        </div>
+        
+        <div class="recovery-message">
+            <h3>🌿 Mensaje de Esperanza</h3>
+            <p>
+                Los obstáculos técnicos son como las nubes que cubren temporalmente el sol: 
+                pasajeros y necesarios para que apreciemos más la claridad cuando regresa. 
+                Tu bienestar es nuestra prioridad, y estamos trabajando para restaurar el servicio.
+            </p>
+        </div>
+        
+        <div class="status-check">
+            <strong>Estado del Sistema:</strong><br>
+            <span id="status-info">Verificando conexión...</span>
+        </div>
+    </div>
+    
+    <script>
+        // Sistema de verificación de estado sin comprometer privacidad
+        function checkSystemStatus() {
+            const statusInfo = document.getElementById('status-info');
+            
+            // Verificación local del estado del navegador
+            const isOnline = navigator.onLine;
+            const timestamp = new Date().toLocaleTimeString('es-ES');
+            
+            if (isOnline) {
+                statusInfo.innerHTML = `
+                    ✅ Conexión a internet: Activa<br>
+                    🕐 Último chequeo: ${timestamp}<br>
+                    💡 El problema parece ser del servidor, no de tu conexión
+                `;
+            } else {
+                statusInfo.innerHTML = `
+                    ❌ Conexión a internet: Inactiva<br>
+                    🕐 Último chequeo: ${timestamp}<br>
+                    💡 Verifica tu conexión a internet
+                `;
+            }
+        }
+        
+        // Verificar estado cada 30 segundos
+        checkSystemStatus();
+        setInterval(checkSystemStatus, 30000);
+        
+        // Registro de error para análisis (sin datos personales)
+        console.log('🚨 Error 500 registrado en Senderos de Tinta');
+        console.log('⏰ Timestamp:', new Date().toISOString());
+        console.log('🌐 User Agent:', navigator.userAgent);
+        
+        // Auto-reintento después de 2 minutos
+        setTimeout(() => {
+            if (confirm('¿Te gustaría intentar recargar la página automáticamente?')) {
+                window.location.reload();
+            }
+        }, 120000);
+        
+        // Listener para cambios de conectividad
+        window.addEventListener('online', () => {
+            statusInfo.innerHTML += '<br>🔄 Conectividad restaurada - Recargando...';
+            setTimeout(() => window.location.reload(), 2000);
+        });
+        
+        window.addEventListener('offline', () => {
+            statusInfo.innerHTML += '<br>⚠️ Conexión perdida';
+        });
+    </script>
+</body>
+</html>
