@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-08-27T00:05:40.722Z",
+  "timestamp": "2025-08-27T00:07:14.890Z",
   "tests": [
     {
       "test": "File Size: index.html",
@@ -10,7 +10,7 @@
         "sizeKB": 10.54,
         "warning": null
       },
-      "timestamp": 1756253140727
+      "timestamp": 1756253234895
     },
     {
       "test": "File Size: css/main.css",
@@ -21,7 +21,7 @@
         "sizeKB": 8.56,
         "warning": null
       },
-      "timestamp": 1756253140727
+      "timestamp": 1756253234895
     },
     {
       "test": "File Size: css/poem.css",
@@ -32,7 +32,7 @@
         "sizeKB": 11.56,
         "warning": null
       },
-      "timestamp": 1756253140727
+      "timestamp": 1756253234895
     },
     {
       "test": "File Size: js/security.js",
@@ -43,7 +43,7 @@
         "sizeKB": 16.55,
         "warning": null
       },
-      "timestamp": 1756253140727
+      "timestamp": 1756253234895
     },
     {
       "test": "File Size: js/accessibility.js",
@@ -54,7 +54,7 @@
         "sizeKB": 26.6,
         "warning": null
       },
-      "timestamp": 1756253140727
+      "timestamp": 1756253234895
     },
     {
       "test": "File Size: CHAT_TERAPEUTICO_INTERACTIVO.html",
@@ -65,7 +65,7 @@
         "sizeKB": 38.64,
         "warning": null
       },
-      "timestamp": 1756253140728
+      "timestamp": 1756253234895
     },
     {
       "test": "CSS Variables Usage",
@@ -74,7 +74,7 @@
       "metrics": {
         "cssVariables": 68
       },
-      "timestamp": 1756253140728
+      "timestamp": 1756253234896
     },
     {
       "test": "Modern CSS Features",
@@ -84,7 +84,7 @@
         "hasFlexbox": true,
         "hasGrid": true
       },
-      "timestamp": 1756253140728
+      "timestamp": 1756253234896
     },
     {
       "test": "CSS Transitions",
@@ -93,21 +93,21 @@
       "metrics": {
         "transitions": 12
       },
-      "timestamp": 1756253140729
+      "timestamp": 1756253234896
     },
     {
       "test": "Responsive Meta Tag: index.html",
       "passed": true,
       "message": "Viewport meta tag found",
       "metrics": {},
-      "timestamp": 1756253140729
+      "timestamp": 1756253234896
     },
     {
       "test": "SEO Meta Description: index.html",
       "passed": true,
       "message": "Description meta tag found",
       "metrics": {},
-      "timestamp": 1756253140729
+      "timestamp": 1756253234896
     },
     {
       "test": "Semantic HTML: index.html",
@@ -122,21 +122,21 @@
           "nav"
         ]
       },
-      "timestamp": 1756253140729
+      "timestamp": 1756253234897
     },
     {
       "test": "Responsive Meta Tag: CHAT_TERAPEUTICO_INTERACTIVO.html",
       "passed": true,
       "message": "Viewport meta tag found",
       "metrics": {},
-      "timestamp": 1756253140729
+      "timestamp": 1756253234897
     },
     {
       "test": "SEO Meta Description: CHAT_TERAPEUTICO_INTERACTIVO.html",
       "passed": true,
       "message": "Description meta tag found",
       "metrics": {},
-      "timestamp": 1756253140729
+      "timestamp": 1756253234897
     },
     {
       "test": "Semantic HTML: CHAT_TERAPEUTICO_INTERACTIVO.html",
@@ -149,21 +149,21 @@
           "footer"
         ]
       },
-      "timestamp": 1756253140730
+      "timestamp": 1756253234897
     },
     {
       "test": "Responsive Meta Tag: paleta-colores.html",
       "passed": true,
       "message": "Viewport meta tag found",
       "metrics": {},
-      "timestamp": 1756253140730
+      "timestamp": 1756253234897
     },
     {
       "test": "SEO Meta Description: paleta-colores.html",
       "passed": true,
       "message": "Description meta tag found",
       "metrics": {},
-      "timestamp": 1756253140730
+      "timestamp": 1756253234897
     },
     {
       "test": "Semantic HTML: paleta-colores.html",
@@ -178,49 +178,49 @@
           "nav"
         ]
       },
-      "timestamp": 1756253140730
+      "timestamp": 1756253234897
     },
     {
       "test": "ARIA Support",
       "passed": true,
       "message": "ARIA implementation found",
       "metrics": {},
-      "timestamp": 1756253140730
+      "timestamp": 1756253234898
     },
     {
       "test": "Keyboard Navigation",
       "passed": true,
       "message": "Keyboard navigation implemented",
       "metrics": {},
-      "timestamp": 1756253140730
+      "timestamp": 1756253234898
     },
     {
       "test": "Screen Reader Support",
       "passed": true,
       "message": "Screen reader support found",
       "metrics": {},
-      "timestamp": 1756253140730
+      "timestamp": 1756253234898
     },
     {
       "test": "Service Worker",
       "passed": true,
       "message": "Service worker file found",
       "metrics": {},
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "PWA Manifest",
       "passed": true,
       "message": "PWA manifest found",
       "metrics": {},
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "Server Optimization",
       "passed": true,
       "message": ".htaccess.performance configuration found",
       "metrics": {},
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "Asset Minification",
@@ -230,7 +230,7 @@
         "hasMinifiedCSS": true,
         "hasMinifiedJS": true
       },
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "Load Time (3G)",
@@ -241,7 +241,7 @@
         "criticalPathSize": 19560,
         "connection": "3G"
       },
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "Load Time (4G)",
@@ -252,7 +252,7 @@
         "criticalPathSize": 19560,
         "connection": "4G"
       },
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     },
     {
       "test": "Load Time (WiFi)",
@@ -263,7 +263,7 @@
         "criticalPathSize": 19560,
         "connection": "WiFi"
       },
-      "timestamp": 1756253140731
+      "timestamp": 1756253234898
     }
   ],
   "summary": {
@@ -271,5 +271,5 @@
     "failed": 0,
     "warnings": 0
   },
-  "testDuration": 5
+  "testDuration": 4
 }
