@@ -1,0 +1,275 @@
+{
+  "timestamp": "2025-08-27T00:05:40.722Z",
+  "tests": [
+    {
+      "test": "File Size: index.html",
+      "passed": true,
+      "message": "10.54KB (limit: 48.83KB)",
+      "metrics": {
+        "size": 10793,
+        "sizeKB": 10.54,
+        "warning": null
+      },
+      "timestamp": 1756253140727
+    },
+    {
+      "test": "File Size: css/main.css",
+      "passed": true,
+      "message": "8.56KB (limit: 97.66KB)",
+      "metrics": {
+        "size": 8767,
+        "sizeKB": 8.56,
+        "warning": null
+      },
+      "timestamp": 1756253140727
+    },
+    {
+      "test": "File Size: css/poem.css",
+      "passed": true,
+      "message": "11.56KB (limit: 48.83KB)",
+      "metrics": {
+        "size": 11841,
+        "sizeKB": 11.56,
+        "warning": null
+      },
+      "timestamp": 1756253140727
+    },
+    {
+      "test": "File Size: js/security.js",
+      "passed": true,
+      "message": "16.55KB (limit: 48.83KB)",
+      "metrics": {
+        "size": 16947,
+        "sizeKB": 16.55,
+        "warning": null
+      },
+      "timestamp": 1756253140727
+    },
+    {
+      "test": "File Size: js/accessibility.js",
+      "passed": true,
+      "message": "26.6KB (limit: 73.24KB)",
+      "metrics": {
+        "size": 27243,
+        "sizeKB": 26.6,
+        "warning": null
+      },
+      "timestamp": 1756253140727
+    },
+    {
+      "test": "File Size: CHAT_TERAPEUTICO_INTERACTIVO.html",
+      "passed": true,
+      "message": "38.64KB (limit: 195.31KB)",
+      "metrics": {
+        "size": 39569,
+        "sizeKB": 38.64,
+        "warning": null
+      },
+      "timestamp": 1756253140728
+    },
+    {
+      "test": "CSS Variables Usage",
+      "passed": true,
+      "message": "Found 68 CSS variable uses",
+      "metrics": {
+        "cssVariables": 68
+      },
+      "timestamp": 1756253140728
+    },
+    {
+      "test": "Modern CSS Features",
+      "passed": true,
+      "message": "Flexbox: true, Grid: true",
+      "metrics": {
+        "hasFlexbox": true,
+        "hasGrid": true
+      },
+      "timestamp": 1756253140728
+    },
+    {
+      "test": "CSS Transitions",
+      "passed": true,
+      "message": "Found 12 transition declarations",
+      "metrics": {
+        "transitions": 12
+      },
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "Responsive Meta Tag: index.html",
+      "passed": true,
+      "message": "Viewport meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "SEO Meta Description: index.html",
+      "passed": true,
+      "message": "Description meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "Semantic HTML: index.html",
+      "passed": true,
+      "message": "Found 5 semantic tags: main, section, header, footer, nav",
+      "metrics": {
+        "semanticTags": [
+          "main",
+          "section",
+          "header",
+          "footer",
+          "nav"
+        ]
+      },
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "Responsive Meta Tag: CHAT_TERAPEUTICO_INTERACTIVO.html",
+      "passed": true,
+      "message": "Viewport meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "SEO Meta Description: CHAT_TERAPEUTICO_INTERACTIVO.html",
+      "passed": true,
+      "message": "Description meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140729
+    },
+    {
+      "test": "Semantic HTML: CHAT_TERAPEUTICO_INTERACTIVO.html",
+      "passed": true,
+      "message": "Found 3 semantic tags: main, header, footer",
+      "metrics": {
+        "semanticTags": [
+          "main",
+          "header",
+          "footer"
+        ]
+      },
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "Responsive Meta Tag: paleta-colores.html",
+      "passed": true,
+      "message": "Viewport meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "SEO Meta Description: paleta-colores.html",
+      "passed": true,
+      "message": "Description meta tag found",
+      "metrics": {},
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "Semantic HTML: paleta-colores.html",
+      "passed": true,
+      "message": "Found 5 semantic tags: main, section, header, footer, nav",
+      "metrics": {
+        "semanticTags": [
+          "main",
+          "section",
+          "header",
+          "footer",
+          "nav"
+        ]
+      },
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "ARIA Support",
+      "passed": true,
+      "message": "ARIA implementation found",
+      "metrics": {},
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "Keyboard Navigation",
+      "passed": true,
+      "message": "Keyboard navigation implemented",
+      "metrics": {},
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "Screen Reader Support",
+      "passed": true,
+      "message": "Screen reader support found",
+      "metrics": {},
+      "timestamp": 1756253140730
+    },
+    {
+      "test": "Service Worker",
+      "passed": true,
+      "message": "Service worker file found",
+      "metrics": {},
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "PWA Manifest",
+      "passed": true,
+      "message": "PWA manifest found",
+      "metrics": {},
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "Server Optimization",
+      "passed": true,
+      "message": ".htaccess.performance configuration found",
+      "metrics": {},
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "Asset Minification",
+      "passed": true,
+      "message": "CSS minified: true, JS minified: true",
+      "metrics": {
+        "hasMinifiedCSS": true,
+        "hasMinifiedJS": true
+      },
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "Load Time (3G)",
+      "passed": true,
+      "message": "25ms (critical path: 19KB)",
+      "metrics": {
+        "loadTime": 25.46875,
+        "criticalPathSize": 19560,
+        "connection": "3G"
+      },
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "Load Time (4G)",
+      "passed": true,
+      "message": "6ms (critical path: 19KB)",
+      "metrics": {
+        "loadTime": 6.21795654296875,
+        "criticalPathSize": 19560,
+        "connection": "4G"
+      },
+      "timestamp": 1756253140731
+    },
+    {
+      "test": "Load Time (WiFi)",
+      "passed": true,
+      "message": "2ms (critical path: 19KB)",
+      "metrics": {
+        "loadTime": 1.865386962890625,
+        "criticalPathSize": 19560,
+        "connection": "WiFi"
+      },
+      "timestamp": 1756253140731
+    }
+  ],
+  "summary": {
+    "passed": 28,
+    "failed": 0,
+    "warnings": 0
+  },
+  "testDuration": 5
+}

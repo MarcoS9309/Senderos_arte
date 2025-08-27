@@ -1,0 +1,54 @@
+# Configuración Brotli (si está disponible)
+<IfModule mod_brotli.c>
+    BrotliCompressionQuality 6
+    BrotliFilterNote Input instream
+    BrotliFilterNote Output outstream
+    BrotliFilterNote Ratio ratio
+    
+    AddOutputFilterByType BROTLI_COMPRESS text/plain
+    AddOutputFilterByType BROTLI_COMPRESS text/html
+    AddOutputFilterByType BROTLI_COMPRESS text/xml
+    AddOutputFilterByType BROTLI_COMPRESS text/css
+    AddOutputFilterByType BROTLI_COMPRESS text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/json
+</IfModule>
+# Preload de recursos críticos
+<FilesMatch "\.(html)$">
+    Header add Link "</css/main.css>; rel=preload; as=style"
+    Header add Link "</css/poem.css>; rel=preload; as=style"
+    Header add Link "</js/security.js>; rel=preload; as=script"
+</FilesMatch>
+
+# DNS Prefetch para dominios externos (si se usan)
+<FilesMatch "\.(html)$">
+    Header add Link "<//fonts.googleapis.com>; rel=dns-prefetch"
+    Header add Link "<//cdnjs.cloudflare.com>; rel=dns-prefetch"
+</FilesMatch>
+# Servir WebP cuando esté soportado
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Verificar soporte WebP
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+    RewriteCond %{REQUEST_FILENAME}\.webp -f
+    RewriteRule (.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+# Headers para imágenes WebP
+<FilesMatch "\.(webp)$">
+    Header set Vary Accept
+</FilesMatch>
+# HTTP/2 Server Push (si está disponible)
+<IfModule mod_http2.c>
+    # Push de recursos críticos
+    <LocationMatch "^/$">
+        Header add Link "</css/main.css>; rel=preload; as=style; nopush"
+        Header add Link "</css/poem.css>; rel=preload; as=style; nopush"
+    </LocationMatch>
+    
+    <LocationMatch "^/CHAT_TERAPEUTICO_INTERACTIVO.html$">
+        Header add Link "</js/security.js>; rel=preload; as=script; nopush"
+    </LocationMatch>
+</IfModule>
