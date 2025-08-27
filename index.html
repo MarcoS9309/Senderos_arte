@@ -12,6 +12,17 @@
     <meta property="og:type" content="website">
     <title>Senderos de Tinta - Proyecto Poético</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => console.log('SW registered: ', registration))
+                    .catch(registrationError => console.log('SW registration failed: ', registrationError));
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Rendimiento - Senderos de Tinta</title>
+    <style>
+        body { 
+            font-family: 'Georgia', serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .metric {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .metric h3 { margin: 0 0 0.5rem 0; color: #e8b4cb; }
+        .metric-value { font-size: 1.5rem; font-weight: bold; }
+        .good { color: #2ecc71; }
+        .warning { color: #f39c12; }
+        .error { color: #e74c3c; }
+        button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+    <h1>🚀 Monitor de Rendimiento Terapéutico</h1>
+    
+    <div class="metric">
+        <h3>⚡ Core Web Vitals</h3>
+        <div id="cwv-results">Midiendo...</div>
+        <button onclick="measureCWV()">Medir Nuevamente</button>
+    </div>
+    
+    <div class="metric">
+        <h3>💾 Uso de Memoria</h3>
+        <div id="memory-info">Calculando...</div>
+    </div>
+    
+    <div class="metric">
+        <h3>🌐 Estado de Conectividad</h3>
+        <div id="network-info">Verificando...</div>
+    </div>
+    
+    <div class="metric">
+        <h3>📱 Información del Dispositivo</h3>
+        <div id="device-info">Detectando...</div>
+    </div>
+    
+    <div class="metric">
+        <h3>🔧 Service Worker</h3>
+        <div id="sw-status">Verificando...</div>
+        <button onclick="updateSW()">Actualizar SW</button>
+    </div>
+
+    <script>
+        // Core Web Vitals
+        async function measureCWV() {
+            const cwvResults = document.getElementById('cwv-results');
+            cwvResults.innerHTML = 'Midiendo...';
+            
+            try {
+                // Simular mediciones de CWV
+                const paintEntries = performance.getEntriesByType('paint');
+                const fcp = paintEntries.find(entry => entry.name === 'first-contentful-paint');
+                const lcp = paintEntries.find(entry => entry.name === 'largest-contentful-paint');
+                
+                let html = '';
+                if (fcp) {
+                    const fcpValue = fcp.startTime;
+                    const fcpClass = fcpValue < 1800 ? 'good' : fcpValue < 3000 ? 'warning' : 'error';
+                    html += `<div class="${fcpClass}">FCP: ${Math.round(fcpValue)}ms</div>`;
+                }
+                
+                // LCP usando PerformanceObserver
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+                        const lcpValue = lastEntry.startTime;
+                        const lcpClass = lcpValue < 2500 ? 'good' : lcpValue < 4000 ? 'warning' : 'error';
+                        html += `<div class="${lcpClass}">LCP: ${Math.round(lcpValue)}ms</div>`;
+                        cwvResults.innerHTML = html;
+                    });
+                    observer.observe({entryTypes: ['largest-contentful-paint']});
+                }
+                
+                // FID y CLS requieren interacción real del usuario
+                html += '<div>FID: Requiere interacción del usuario</div>';
+                html += '<div>CLS: Midiendo durante navegación</div>';
+                
+                cwvResults.innerHTML = html || 'No hay datos disponibles';
+            } catch (e) {
+                cwvResults.innerHTML = `Error: ${e.message}`;
+            }
+        }
+        
+        // Información de memoria
+        function updateMemoryInfo() {
+            const memoryInfo = document.getElementById('memory-info');
+            
+            if ('memory' in performance) {
+                const mem = performance.memory;
+                const used = Math.round(mem.usedJSHeapSize / 1048576);
+                const total = Math.round(mem.totalJSHeapSize / 1048576);
+                const limit = Math.round(mem.jsHeapSizeLimit / 1048576);
+                
+                const usage = (used / total) * 100;
+                const usageClass = usage < 50 ? 'good' : usage < 80 ? 'warning' : 'error';
+                
+                memoryInfo.innerHTML = `
+                    <div class="${usageClass}">Uso: ${used}MB / ${total}MB (${Math.round(usage)}%)</div>
+                    <div>Límite: ${limit}MB</div>
+                `;
+            } else {
+                memoryInfo.innerHTML = 'Información de memoria no disponible';
+            }
+        }
+        
+        // Estado de red
+        function updateNetworkInfo() {
+            const networkInfo = document.getElementById('network-info');
+            
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            
+            let html = `<div class="${navigator.onLine ? 'good' : 'error'}">
+                ${navigator.onLine ? '🟢 Conectado' : '🔴 Desconectado'}
+            </div>`;
+            
+            if (connection) {
+                html += `
+                    <div>Tipo: ${connection.effectiveType || 'Desconocido'}</div>
+                    <div>Velocidad estimada: ${connection.downlink || 'N/A'} Mbps</div>
+                    <div>RTT: ${connection.rtt || 'N/A'} ms</div>
+                `;
+            }
+            
+            networkInfo.innerHTML = html;
+        }
+        
+        // Información del dispositivo
+        function updateDeviceInfo() {
+            const deviceInfo = document.getElementById('device-info');
+            
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth > 768;
+            
+            deviceInfo.innerHTML = `
+                <div>Tipo: ${isMobile ? '📱 Móvil' : isTablet ? '📋 Tablet' : '🖥️ Escritorio'}</div>
+                <div>Resolución: ${screen.width}x${screen.height}</div>
+                <div>Viewport: ${window.innerWidth}x${window.innerHeight}</div>
+                <div>Ratio de píxeles: ${window.devicePixelRatio || 1}</div>
+                <div>Orientación: ${screen.orientation ? screen.orientation.type : 'N/A'}</div>
+            `;
+        }
+        
+        // Estado del Service Worker
+        function updateSWStatus() {
+            const swStatus = document.getElementById('sw-status');
+            
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(reg => {
+                    if (reg) {
+                        const state = reg.active ? reg.active.state : 'No activo';
+                        swStatus.innerHTML = `<div class="good">✅ Registrado (${state})</div>`;
+                    } else {
+                        swStatus.innerHTML = '<div class="warning">⚠️ No registrado</div>';
+                    }
+                });
+            } else {
+                swStatus.innerHTML = '<div class="error">❌ No soportado</div>';
+            }
+        }
+        
+        // Actualizar Service Worker
+        function updateSW() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(reg => {
+                    if (reg) {
+                        reg.update().then(() => {
+                            alert('Service Worker actualizado');
+                            updateSWStatus();
+                        });
+                    }
+                });
+            }
+        }
+        
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            measureCWV();
+            updateMemoryInfo();
+            updateNetworkInfo();
+            updateDeviceInfo();
+            updateSWStatus();
+            
+            // Actualizar cada 30 segundos
+            setInterval(() => {
+                updateMemoryInfo();
+                updateNetworkInfo();
+            }, 30000);
+        });
+        
+        // Listeners para cambios de red
+        window.addEventListener('online', updateNetworkInfo);
+        window.addEventListener('offline', updateNetworkInfo);
+        
+        console.log('🚀 Monitor de rendimiento iniciado');
+    </script>
+</body>
+</html>

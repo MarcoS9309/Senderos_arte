@@ -7,7 +7,14 @@
     "dev": "live-server --port=3000 --host=localhost --open=index.html",
     "serve": "python3 -m http.server 8080",
     "format": "prettier --write \"**/*.{html,css,md,json}\"",
-    "validate:html": "htmlhint *.html poems/*.html"
+    "validate:html": "htmlhint *.html poems/*.html",
+    "build:css": "npx clean-css -o css/main.min.css css/main.css && npx clean-css -o css/poem.min.css css/poem.css",
+    "build:js": "npx terser js/security.js -o js/security.min.js && npx terser js/accessibility.js -o js/accessibility.min.js",
+    "build": "npm run build:css && npm run build:js",
+    "test:performance": "node tests/performance-test.js",
+    "test:fluidity": "./fluidity-test.sh",
+    "optimize": "./optimize-performance.sh && npm run build",
+    "start:monitor": "live-server --port=3001 --host=localhost --open=performance-monitor.html"
   },
   "keywords": [
     "poesia",
@@ -40,7 +47,9 @@
   "devDependencies": {
     "htmlhint": "^1.1.4",
     "live-server": "^1.2.2",
-    "prettier": "^3.1.1"
+    "prettier": "^3.1.1",
+    "terser": "^5.34.1",
+    "clean-css-cli": "^5.6.3"
   },
   "browserslist": [
     "> 1%",

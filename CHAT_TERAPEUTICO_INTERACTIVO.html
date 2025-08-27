@@ -336,7 +336,39 @@
             0%, 100% { filter: hue-rotate(0deg); }
             50% { filter: hue-rotate(20deg); }
         }
+
+        /* Screen Reader Support */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus indicators for accessibility */
+        .input-terapeutico:focus,
+        .boton-enviar:focus,
+        .sugerencia-btn:focus {
+            outline: 3px solid var(--medicina-preventiva);
+            outline-offset: 2px;
+        }
     </style>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => console.log('SW registered: ', registration))
+                    .catch(registrationError => console.log('SW registration failed: ', registrationError));
+            });
+        }
+    </script>
 </head>
 <body>
     <header class="header-terapeutico">
@@ -364,7 +396,7 @@
             </button>
         </div>
 
-        <div class="mensajes-area" id="mensajesArea">
+        <main class="mensajes-area" id="mensajesArea" role="log" aria-live="polite" aria-label="Historial de conversación terapéutica">
             <div class="mensaje mensaje-sistema">
                 <div class="indicador-emocional estado-calma"></div>
                 🌱 <strong>Sistema Iniciado</strong> 🌱<br>
@@ -383,24 +415,29 @@
                 
                 ¿Cómo se siente tu corazón en este momento? ¿Qué colores lleva tu alma hoy? 🎨✨
             </div>
-        </div>
+        </main>
 
         <div class="typing-indicator" id="typingIndicator">
             🤖 Aurora está pensando en la respuesta más sanadora para ti... 💭
         </div>
 
-        <div class="input-area">
+        <footer class="input-area">
+            <label for="inputUsuario" class="sr-only">Escribe tu mensaje terapéutico</label>
             <input 
                 type="text" 
                 class="input-terapeutico" 
                 id="inputUsuario" 
                 placeholder="Comparte lo que sientes... cada palabra es medicina 💫"
                 onkeypress="if(event.key==='Enter') enviarMensaje()"
+                aria-describedby="input-ayuda"
             >
-            <button class="boton-enviar" onclick="enviarMensaje()">
+            <div id="input-ayuda" class="sr-only">
+                Presiona Enter para enviar tu mensaje
+            </div>
+            <button class="boton-enviar" onclick="enviarMensaje()" aria-label="Enviar mensaje terapéutico">
                 💕 Enviar
             </button>
-        </div>
+        </footer>
     </div>
 
     <script>
